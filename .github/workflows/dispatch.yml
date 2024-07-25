@@ -25,4 +25,4 @@ jobs:
             fi
             cd /home/actions/projects/webhook-dispatch/
             git pull 
-            docker-compose -d -f docker-compose.yml up 
+            docker-compose -f docker-compose.yml up -d 
