@@ -1,0 +1,28 @@
+name: "deploy-compose"
+
+on: 
+  repository_dispatch:
+    types: [deploy]
+
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: multiple command
+  uses: appleboy/ssh-action@v1.0.3
+  with:
+    host: ${{ secrets.HOST }}
+    username: ${{ secrets.USERNAME }}
+    key: ${{ secrets.KEY }}
+    port: ${{ secrets.PORT }}
+    script: |
+      if [ -d /home/actions/pojects/webhook-dispatch ]
+      then
+        echo "Repo already exists..."
+      else
+        cd /home/actions/projects/
+        git clone git@github.com:Mviyo-Technologies-Ltd/webhook-dispatch.git
+      fi
+      cd /home/actions/projects/webhook-dispatch/
+      git pull 
+      docker compose -f compose.yml up

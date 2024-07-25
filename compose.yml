@@ -1,0 +1,17 @@
+version: "3.8"  # Adjust the version if needed based on your Docker requirements
+
+services:
+  aago:
+    image: mviyotech/agtapi-remote
+    environment:
+      MAIN_DB_USER: "${{secrets.MAIN_DB_USER}}"
+      DB_USER: "${{secrets.DB_USER}}"
+      MAIN_USER_DB_PASS: "${{secrets.MAIN_USER_DB_PASS}}"
+      USER_DB_PASS: "${{secrets.USER_DB_PASS}}"
+      DATABASE_NAME: "${{secrets.DATABASE_NAME}}"
+      DATABASE_HOST: "${{secrets.DATABASE_HOST}}"
+  health24:
+    image: mviyotech/health24-latest
+    environment:
+      ASSET_URL: "https://health24support.com"
+      APP_KEY: 'base64:wujxJozKpYS63bO1PEnzk0yZeg5xlVYpA2tTrYBaODE='
