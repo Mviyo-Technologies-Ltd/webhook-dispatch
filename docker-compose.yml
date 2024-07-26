@@ -3,6 +3,8 @@ version: "3.8"  # Adjust the version if needed based on your Docker requirements
 services:
   aago:
     image: mviyotech/agtapi:remote
+    ports:
+      - 3082:3092
     environment:
       MAIN_DB_USER: "${MAIN_DB_USER}"
       DB_USER: "${DB_USER}"
@@ -12,6 +14,8 @@ services:
       DATABASE_HOST: "${DATABASE_HOST}"
   health24:
     image: mviyotech/health24:latest
+    ports:
+      - 8085:8000
     environment: 
       ASSET_URL: "https://health24support.com"
       APP_KEY: "base64:wujxJozKpYS63bO1PEnzk0yZeg5xlVYpA2tTrYBaODE="
