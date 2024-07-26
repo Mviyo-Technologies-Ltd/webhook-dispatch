@@ -2,7 +2,7 @@ version: "3.8"  # Adjust the version if needed based on your Docker requirements
 
 services:
   aago:
-    image: mviyotech/agtapi-remote
+    image: mviyotech/agtapi:remote
     environment:
       MAIN_DB_USER: "${MAIN_DB_USER}"
       DB_USER: "${DB_USER}"
