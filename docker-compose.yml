@@ -13,5 +13,5 @@ services:
   health24:
     image: mviyotech/health24:latest
     environment: 
-      ASSET_URL="https://health24support.com"
-      APP_KEY='base64:wujxJozKpYS63bO1PEnzk0yZeg5xlVYpA2tTrYBaODE='
+      ASSET_URL: "https://health24support.com"
+      APP_KEY: "base64:wujxJozKpYS63bO1PEnzk0yZeg5xlVYpA2tTrYBaODE="
