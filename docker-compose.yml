@@ -2,7 +2,7 @@ version: "3.8"  # Adjust the version if needed based on your Docker requirements
 
 services:
   aago:
-    image: mviyotech/agtapi:remote
+    image: mviyotech/agtapi:${{github.event.client_payload.commit_hash}}
     ports:
       - 3082:3092
     environment:
