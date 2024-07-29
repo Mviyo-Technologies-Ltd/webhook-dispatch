@@ -16,7 +16,7 @@ jobs:
           password: ${{ secrets.HOST_PASS }}
           port: ${{ secrets.PORT }}
           script: |
-            if [ -d /home/actions/pojects/webhook-dispatch ]
+            if [ -d /home/actions/projects/webhook-dispatch ]
             then
               echo "Repo already exists..."
             else
@@ -29,6 +29,7 @@ jobs:
             export USER_DB_PASS="${{secrets.USER_DB_PASS}}"
             export DATABASE_NAME="${{secrets.DATABASE_NAME}}"
             export DATABASE_HOST="${{secrets.DATABASE_HOST}}"
+            export AGT_COMMIT_HASH="${{github.event.client_payload.commit_hash}}"
             cd /home/actions/projects/webhook-dispatch/
             git pull 
             docker-compose -f docker-compose.yml up -d 
